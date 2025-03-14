@@ -1,4 +1,5 @@
 """Tornado handler for managing and communicating with language servers."""
+
 # pylint: disable=abstract-method
 from typing import TYPE_CHECKING
 

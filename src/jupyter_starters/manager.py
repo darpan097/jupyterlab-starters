@@ -1,4 +1,5 @@
 """Manager, for starters."""
+
 # pylint: disable=unsubscriptable-object,fixme
 import base64
 import importlib
@@ -192,7 +193,7 @@ class StarterManager(LoggingConfigurable):
         raise NotImplementedError(starter["type"])
 
     async def stop(self, name):
-        """stop a starter.
+        """Stop a starter.
 
         presently only works for notebooks
         """
@@ -314,9 +315,9 @@ class StarterManager(LoggingConfigurable):
             path=dest,
             last_modified=tz.utcfromtimestamp(stat.st_mtime),
             created=tz.utcfromtimestamp(stat.st_ctime),
-            content=None
-            if is_dir
-            else base64.b64encode(src.read_bytes()).decode("utf-8"),
+            content=(
+                None if is_dir else base64.b64encode(src.read_bytes()).decode("utf-8")
+            ),
             format=None if is_dir else "base64",
             mimetype=None,
             size=stat.st_size,
@@ -347,7 +348,7 @@ class StarterManager(LoggingConfigurable):
         return json_.loads(nb_json)
 
     async def save_content(self, path, starter_model, body):
-        """save a content model (and its children)"""
+        """Save a content model (and its children)"""
         body = body or {}
         name_tmpl = self.jinja_env.from_string(starter_model["name"])
         name = name_tmpl.render(**body).strip()

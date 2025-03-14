@@ -1,4 +1,5 @@
 """Check preflight consistency."""
+
 import pathlib
 
 # pylint: disable=redefined-outer-name,unused-variable

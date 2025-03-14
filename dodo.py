@@ -1,4 +1,5 @@
 """Development automation for jupyter[lab]-starter."""
+
 import difflib
 import json
 import os
@@ -30,11 +31,11 @@ class C:
     THIS_PY = "{}.{}".format(*sys.version_info)
     PYTHONS = [
         "3.8",
-        "3.11",
+        "3.10",
     ]
     PY_LABS = {
         "3.8": "lab3.5",
-        "3.11": "lab4",
+        "3.10": "lab4",  # 3.11 doesn't work with ruamel.yaml<0.17, which is apparently needed to run this script.
     }
     DEFAULT_PY = PYTHONS[-1]
     DEFAULT_LAB = PY_LABS[DEFAULT_PY]
@@ -777,7 +778,7 @@ def task_lint():
 
 
 def task_jlpm():
-    jlpm_args += ["--frozen-lockfile"] if C.CI else []
+    jlpm_args = ["--frozen-lockfile"] if C.CI else []
 
     actions = [[*C.LERNA, "bootstrap"]]
 
@@ -1050,7 +1051,7 @@ def task_prod():
 
 
 def task_lab():
-    """run JupyterLab "normally" (not watching sources)"""
+    """Run JupyterLab "normally" (not watching sources)"""
     if not C.RUNNING_LOCALLY:
         return
 
@@ -1359,9 +1360,10 @@ DOIT_CONFIG = {
     "par_type": "thread",
     "reporter": R,
     "default_tasks": [
-        "lint", "integrity",
-                      #   "test", "docs"
-                      ],
+        "lint",
+        "integrity",
+        #   "test", "docs"
+    ],
 }
 
 # patch environment for all child tasks

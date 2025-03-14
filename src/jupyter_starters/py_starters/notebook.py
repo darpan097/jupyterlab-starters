@@ -1,4 +1,5 @@
 """Use a notebook as a starter."""
+
 # pylint: disable=duplicate-code,too-many-locals
 import asyncio
 import shutil
@@ -35,7 +36,7 @@ def response_from_notebook(src):
 
 
 def kernel_for_path(src):
-    """get the kernel.
+    """Get the kernel.
 
     TODO: do better on account of freaky names
     """
@@ -66,7 +67,7 @@ async def get_kernel_and_tmpdir(name, starter, manager):
 
 
 async def stop_kernel(name, manager):
-    """stop the kernel (and clean the tmpdir)"""
+    """Stop the kernel (and clean the tmpdir)"""
     kernel_id, tmpdir = manager.kernel_dirs.pop(name, [None, None])
     if kernel_id:
         await ensure_async(manager.kernel_manager.shutdown_kernel(kernel_id, now=True))

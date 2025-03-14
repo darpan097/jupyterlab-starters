@@ -1,4 +1,5 @@
 """Serverextension for starters."""
+
 from .handlers import add_handlers
 from .manager import StarterManager
 

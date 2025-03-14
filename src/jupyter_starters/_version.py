@@ -1,4 +1,5 @@
 """Single source of truth for jupyter_starts version."""
+
 import json
 import sys
 from pathlib import Path

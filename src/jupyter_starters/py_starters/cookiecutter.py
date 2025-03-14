@@ -1,4 +1,5 @@
 """A starter that runs cookiecutter."""
+
 # pylint: disable=cyclic-import,duplicate-code,broad-except
 
 import re
@@ -153,17 +154,19 @@ def cookiecutter_starters(manager: "StarterManager"):
                         "default": "HEAD",
                     },
                     **{
-                        "directory": {
-                            "title": "Directory",
-                            "description": (
-                                "Relative path to a cookiecutter "
-                                "template in a repository."
-                            ),
-                            "type": "string",
-                            "default": "",
-                        }
-                        if HAS_DIRECTORY
-                        else {}
+                        "directory": (
+                            {
+                                "title": "Directory",
+                                "description": (
+                                    "Relative path to a cookiecutter "
+                                    "template in a repository."
+                                ),
+                                "type": "string",
+                                "default": "",
+                            }
+                            if HAS_DIRECTORY
+                            else {}
+                        )
                     },
                 },
             },

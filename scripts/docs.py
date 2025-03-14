@@ -1,4 +1,5 @@
 """Antidisinformationarianism."""
+
 import os
 import re
 import shutil
@@ -174,7 +175,7 @@ def run_check_links() -> int:
 
 
 def docs(check_links=True, schema=True, only_schema=False, only_check_links=False):
-    """build (and test) docs.
+    """Build (and test) docs.
 
     because readthedocs, this gets called twice from inside sphinx
     """

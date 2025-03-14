@@ -1,4 +1,5 @@
 """Test the sanity of the src/py_src behavior."""
+
 # pylint: disable=too-many-arguments
 from pathlib import Path
 

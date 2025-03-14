@@ -1,4 +1,5 @@
 """Tests of content starter behavior."""
+
 # pylint: disable=redefined-outer-name
 from pathlib import Path
 
@@ -13,7 +14,7 @@ FOO = "FOÖ"
 
 
 def _is_bar_notebook(nb_path: Path):
-    """does the generated notebook roughly match expectation?"""
+    """Does the generated notebook roughly match expectation?"""
     nb_bytes = nb_path.read_bytes()
     ipynb = json_.loads(nb_bytes.decode("utf-8"))
     code, markdown, raw = ipynb["cells"]
@@ -63,7 +64,7 @@ CONTENT = {
 
 @pytest.mark.asyncio
 async def test_content_file(a_content_starter, a_content_file, starter_manager, caplog):
-    """does a contents starter file start?"""
+    """Does a contents starter file start?"""
     name = "tmp-content-file"
     template, path, content_is = a_content_file
 
@@ -85,7 +86,7 @@ async def test_content_file(a_content_starter, a_content_file, starter_manager, 
 async def test_content_folder(
     a_content_starter, a_content_file, starter_manager, caplog
 ):
-    """does a contents starter with a folder start?"""
+    """Does a contents starter with a folder start?"""
     name = "tmp-content-folder"
     child_template, child_path, child_content_is = a_content_file
 
@@ -111,7 +112,7 @@ async def test_content_folder(
 async def test_content_folder_empty(
     a_content_starter, a_content_file, starter_manager, caplog
 ):
-    """does a contents starter with an empty folder do nothing?"""
+    """Does a contents starter with an empty folder do nothing?"""
     name = "tmp-content-folder"
     child_template, _child_path, _child_content_is = a_content_file
 
@@ -157,5 +158,5 @@ def a_content_starter():
 
 @pytest.fixture(params=[*CONTENT.keys()])
 def a_content_file(request):
-    """an example of expected child content."""
+    """An example of expected child content."""
     return CONTENT[request.param]

@@ -174,7 +174,7 @@ export class SchemaForm<T extends JSONValue = JSONValue> extends VDomRenderer<
       resolver: markdown.resolver,
       linkHandler: markdown.linkHandler,
       shouldTypeset: true,
-      markdownParser: markdown.markdownParser
+      markdownParser: markdown.markdownParser,
     });
 
     const canary = document.createElement('span');

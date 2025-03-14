@@ -1,4 +1,5 @@
 """Linter and formatter of notebooks."""
+
 import shutil
 import subprocess
 import sys

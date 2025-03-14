@@ -1,4 +1,5 @@
 """Tests of exotic notebook starter behavior."""
+
 import pytest
 
 from jupyter_starters.types import Status
@@ -6,7 +7,7 @@ from jupyter_starters.types import Status
 
 @pytest.mark.asyncio
 async def test_notebook_no_schema(starter_manager, tmp_notebook):
-    """does a notebook without a schema still work?
+    """Does a notebook without a schema still work?
 
     https://github.com/deathbeds/jupyterlab-starters/issues/26
     """

@@ -2,6 +2,7 @@
 
 these should be quick to run (not invoke any other process)
 """
+
 # pylint: disable=redefined-outer-name,unused-variable
 import json
 import pathlib
@@ -95,7 +96,7 @@ def test_ts_package_integrity(name, info, the_meta_package):
     ],
 )
 def test_changelog_versions(pkg, version):
-    """is the changelog up-to-date(ish)"""
+    """Is the changelog up-to-date(ish)"""
     assert f"## `{pkg} {version}`" in CHANGELOG.read_text()
 
 

@@ -1,4 +1,5 @@
 """Parametrized starter files and folders for Jupyter."""
+
 from typing import Dict, List
 
 from ._version import __js__, __package_json__, __version__

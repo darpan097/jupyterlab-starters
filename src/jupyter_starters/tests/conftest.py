@@ -1,4 +1,5 @@
 """Common test stuff."""
+
 # pylint: disable=redefined-outer-name
 import nbformat.v4
 import pytest

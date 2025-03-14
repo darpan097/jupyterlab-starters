@@ -1,4 +1,5 @@
 """Some types and constants."""
+
 # pylint: disable=too-few-public-methods
 NS = "starters"
 
