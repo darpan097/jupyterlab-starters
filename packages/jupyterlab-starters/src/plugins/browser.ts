@@ -1,4 +1,5 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
+import { ContentsManager } from '@jupyterlab/services';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
 import { SettingsProvider } from '../providers/settings';
@@ -29,7 +30,7 @@ export const browserRunnerPlugin: JupyterFrontEndPlugin<void> = {
   requires: [IStarterManager],
   autoStart: true,
   activate: (app: JupyterFrontEnd, manager: IStarterManager) => {
-    const { contents } = app.serviceManager;
+    const contents = app.serviceManager.contents as ContentsManager;
     const runner = new BrowserStarterRunner({ manager, contents });
     manager.addRunner('browser', runner);
   },

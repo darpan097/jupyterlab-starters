@@ -30,10 +30,10 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@deathbeds/jupyterlab-rjsf": "~2.0.0-alpha0",
-    "@jupyterlab/application": "3",
-    "@jupyterlab/launcher": "3",
-    "@jupyterlab/notebook": "3",
-    "@jupyterlab/running": "3",
+    "@jupyterlab/application": "^4.0.0",
+    "@jupyterlab/launcher": "^4.0.0",
+    "@jupyterlab/notebook": "^4.0.0",
+    "@jupyterlab/running": "^4.0.0",
     "@rjsf/core": "^5.0.1",
     "@rjsf/utils": "^5.0.1",
     "@rjsf/validator-ajv8": "^5.0.1",
@@ -41,7 +41,7 @@
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^3.2.1",
+    "@jupyterlab/builder": "^4.0.0",
     "@types/codemirror": "^0.0.97",
     "@types/lodash.mergewith": "^4.6.7",
     "@types/nunjucks": "^3.2.1",

@@ -105,7 +105,7 @@ export class StarterManager implements IStarterManager {
     const running: IRunningSessions.IRunningItem[] = [];
 
     for (const runner of this._runners.values()) {
-      running.push(...runner.running());
+      running.push(...runner.running({ mode: 'list' }));
     }
 
     return running;

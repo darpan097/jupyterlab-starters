@@ -23,14 +23,18 @@ PY_NAME = "jupyter_starters"
 @pytest.mark.parametrize(
     "kind,expect",
     [
-        ["serverextension", f"{PY_NAME}.*ok"],
+        ["server extension", f"{PY_NAME}.*ok"],
         ["labextension", f"{MAIN_NAME}.*enabled.*ok"],
     ],
 )
 def test_extension_cli(kind, expect):
-    """does (at least) the CLI think the extensions are installed?"""
+    """Does (at least) the CLI think the extensions are installed?"""
+
     proc = subprocess.Popen(
-        ["jupyter", kind, "list"], stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        f"jupyter {kind} list",
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        shell=True,
     )
     out, err = proc.communicate()
     all_out = f"""{out.decode("utf-8")}{err.decode("utf-8")}""".lower()

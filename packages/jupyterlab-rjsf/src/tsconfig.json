@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "../lib",
     "rootDir": ".",
-    "tsBuildInfoFile": "../.src.tsbuildinfo"
+    "tsBuildInfoFile": "../.src.tsbuildinfo",
+    "paths": {
+      "react": ["../../../node_modules/@types/react"]
+    }
   },
   "include": ["./**/*"],
   "references": [{ "path": "../" }]

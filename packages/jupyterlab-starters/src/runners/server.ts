@@ -63,13 +63,17 @@ export class ServerStarterRunner extends BaseStarterRunner implements IStarterRu
         open: () => void 0,
         shutdown: async () => this.stop(name).catch(console.warn),
         icon: () => icon,
-      } as IRunningSessions.IRunningItem;
+      } as unknown as IRunningSessions.IRunningItem;
     });
   }
 
   shutdownAll(): void {
     this.fetch()
-      .then(() => this.running().map((runner) => runner.shutdown()))
+      .then(() =>
+        (this.running() as Array<{ shutdown: () => void }>).map((runner) =>
+          runner.shutdown()
+        )
+      )
       .catch(console.warn);
   }
 

@@ -30,3 +30,4 @@ src/**/labextension/
 src/jupyter_starters/_d/share/
 untitled*
 Untitled*
+.yarn/

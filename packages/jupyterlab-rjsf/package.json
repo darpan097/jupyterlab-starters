@@ -23,8 +23,8 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@jupyterlab/apputils": "3",
-    "@jupyterlab/rendermime": "3",
+    "@jupyterlab/apputils": "^4.0.0",
+    "@jupyterlab/rendermime": "^4.0.0",
     "@rjsf/core": "^5.0.1",
     "@rjsf/utils": "^5.0.1",
     "@rjsf/validator-ajv8": "^5.0.1",

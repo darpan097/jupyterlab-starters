@@ -11,7 +11,7 @@ dependencies:
   - robotframework-robocop
   - robotframework-seleniumlibrary
   - robotframework-tidy
-  - ruamel.yaml
+  - ruamel.yaml<0.17
   - ssort
   - types-jsonschema
   - types-ujson

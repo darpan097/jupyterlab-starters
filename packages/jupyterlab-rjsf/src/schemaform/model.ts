@@ -73,12 +73,12 @@ export class SchemaFormModel<T extends JSONValue> extends VDomModel {
     this.stateChanged.emit(void 0);
   }
 
-  set uiSchema(uiSchema: UiSchema | undefined) {
+  set uiSchema(uiSchema: UiSchema<T> | undefined) {
     this._props.uiSchema = uiSchema;
     this.stateChanged.emit(void 0);
   }
 
-  get uiSchema(): UiSchema | undefined {
+  get uiSchema(): UiSchema<T> | undefined {
     return this._props.uiSchema;
   }
 

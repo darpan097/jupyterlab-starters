@@ -82,13 +82,16 @@ export class NotebookMetadataModel extends VDomModel {
     }
 
     if (this._notebook?.model) {
-      this._notebook.model.metadata.changed.disconnect(this.onNotebookMeta, this);
+      (this._notebook.model.metadata as any).changed.disconnect(
+        this.onNotebookMeta,
+        this
+      );
     }
 
     this._notebook = notebook;
 
     if (this._notebook?.model) {
-      this._notebook.model.metadata.changed.connect(this.onNotebookMeta, this);
+      (this._notebook.model.metadata as any).changed.connect(this.onNotebookMeta, this);
     }
 
     this.onNotebookMeta();
@@ -101,7 +104,8 @@ export class NotebookMetadataModel extends VDomModel {
       return;
     }
     const fromNotebook =
-      (this._notebook?.model?.metadata?.get(NOTEBOOK_META_KEY) as JSONObject) || {};
+      ((this._notebook?.model?.metadata as any).get(NOTEBOOK_META_KEY) as JSONObject) ||
+      {};
     const candidate = (fromNotebook[NOTEBOOK_META_SUBKEY] || {}) as JSONObject;
     if (
       this._form.formData == null ||
@@ -130,13 +134,16 @@ export class NotebookMetadataModel extends VDomModel {
     const { formData, uiSchema } = this._form;
     if (this._notebook && formData) {
       const fromNotebook =
-        this._notebook?.model?.metadata.get(NOTEBOOK_META_KEY) || ({} as any);
+        (this._notebook?.model?.metadata as any).get(NOTEBOOK_META_KEY) || ({} as any);
       const nbStarter = fromNotebook[NOTEBOOK_META_SUBKEY] || {};
       const formStarter = JSONExt.deepCopy((formData as JSONObject) || {});
 
-      for (const keyValue in Object.entries(uiSchema || {})) {
-        const [key, value] = keyValue;
-        if (typeof value == 'object' && value['ui:field'] === 'codemirror-jsonobject') {
+      for (const [key, value] of Object.entries(uiSchema || {})) {
+        if (
+          value &&
+          typeof value === 'object' &&
+          value['ui:field'] === 'codemirror-jsonobject'
+        ) {
           if (!formStarter[key] || !Object.keys(formStarter[key] as any).length) {
             delete formStarter[key];
           }
@@ -152,7 +159,7 @@ export class NotebookMetadataModel extends VDomModel {
       };
 
       if (!JSONExt.deepEqual(fromNotebook, candidate) && this._notebook.model) {
-        this._notebook.model.metadata.set(NOTEBOOK_META_KEY, candidate);
+        (this._notebook.model.metadata as any).set(NOTEBOOK_META_KEY, candidate);
       }
     }
     this.stateChanged.emit(void 0);

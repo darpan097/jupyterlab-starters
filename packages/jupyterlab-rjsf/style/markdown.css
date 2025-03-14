@@ -6,6 +6,6 @@
 
 .jp-SchemaForm .jp-RenderedMarkdown > *:nth-last-child(2),
 .jp-SchemaForm .jp-RenderedMarkdown > p:nth-last-child(2) {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   padding-bottom: 0;
 }

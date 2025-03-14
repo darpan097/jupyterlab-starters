@@ -1,4 +1,4 @@
 dependencies:
   - jupyter-server-proxy
-  - jupyter-videochat
+  # - jupyter-videochat  # not supported on jupyterlab 4
   - jupyterhub-singleuser

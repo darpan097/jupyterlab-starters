@@ -16,21 +16,26 @@ time-permitting.
 - Get [Mambaforge](https://github.com/conda-forge/miniforge/releases)
 - Get [doit](https://pydoit.org)
 
-```bash
-mamba install doit
-```
+1. Create ide-env to run `dodo.py`:
+   ```bash
+   conda create -n ide_jupstarters doit "ruamel.yaml<0.17" conda-lock python=3.10
+   ```
+2. Initiliase local dev environment
+   ```bash
+   conda activate ide_jupstarters
+   cd /path/to/repo/root
+   doit   # script will stop with some errors; proceed with next commands
+   conda activate /path/to/repo/root/.envs/dev
+   jlpm
+   doit
+   ```
+3. Now you should have a working Lab.
 
-```bash
-doit
-```
+   ```bash
+   doit lab
+   ```
 
-Now you should have a working Lab.
-
-```bash
-doit lab
-```
-
-Try out some stuff. Make some whitepapers and cookiecutters.
+   Try out some stuff. Make some whitepapers and cookiecutters.
 
 ## linting
 
